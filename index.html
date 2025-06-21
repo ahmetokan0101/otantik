@@ -5,6 +5,55 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ankara Otantik | Kıyafet Perakende</title>
   <meta name="description" content="Ankara Otantik - Modern ve animasyonlu kıyafet perakende alışveriş sitesi." />
+  <meta name="keywords" content="otantik, kıyafet, moda, perakende, butik, Ankara, kadın giyim, erkek giyim, indirim, kampanya, alışveriş" />
+  <meta name="robots" content="index, follow" />
+  <meta name="author" content="Ankara Otantik" />
+  <meta name="theme-color" content="#2D3436" />
+  <link rel="canonical" href="https://www.ankaraotantik.com/" />
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+  <meta http-equiv="content-language" content="tr" />
+  <link rel="alternate" hreflang="tr" href="https://www.ankaraotantik.com/" />
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Ankara Otantik | Kıyafet Perakende" />
+  <meta property="og:description" content="Ankara Otantik - Modern ve animasyonlu kıyafet perakende alışveriş sitesi." />
+  <meta property="og:url" content="https://www.ankaraotantik.com/" />
+  <meta property="og:image" content="/og-image.jpg" />
+  <meta property="og:site_name" content="Ankara Otantik" />
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Ankara Otantik | Kıyafet Perakende" />
+  <meta name="twitter:description" content="Ankara Otantik - Modern ve animasyonlu kıyafet perakende alışveriş sitesi." />
+  <meta name="twitter:image" content="/og-image.jpg" />
+  <meta name="twitter:site" content="@ankaraotantik" />
+  <!-- Structured Data: Organization & WebSite -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Ankara Otantik",
+    "url": "https://www.ankaraotantik.com/",
+    "logo": "/logo.png",
+    "sameAs": [
+      "https://www.instagram.com/ankaraotantik",
+      "https://www.facebook.com/ankaraotantik",
+      "https://twitter.com/ankaraotantik"
+    ]
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "url": "https://www.ankaraotantik.com/",
+    "potentialAction": {
+      "@type": "SearchAction",
+      "target": "https://www.ankaraotantik.com/search.html?q={search_term_string}",
+      "query-input": "required name=search_term_string"
+    }
+  }
+  </script>
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Poppins:wght@700;600&family=Playfair+Display:wght@700&family=Dancing+Script&display=swap" rel="stylesheet">
   <!-- Font Awesome -->
@@ -16,6 +65,7 @@
   <script src="https://unpkg.com/lottie-web@5.12.2/build/player/lottie.min.js"></script>
   <!-- Stil dosyası -->
   <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
   <style>
     :root {
       --color-main: #2D3436;
@@ -209,6 +259,7 @@
       .categories { gap: 1rem; }
       .featured-title { font-size: 1.3rem; }
     }
+    .breadcrumb-nav { display: none; }
   </style>
 </head>
 <body>
@@ -237,6 +288,16 @@
   </header>
   <!-- HEADER BİTİŞ -->
 
+  <nav aria-label="breadcrumb" class="breadcrumb-nav">
+    <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a itemprop="item" href="index.html"><span itemprop="name">Ana Sayfa</span></a>
+        <meta itemprop="position" content="1" />
+      </li>
+    </ol>
+  </nav>
+
+  <main id="main-content">
   <!-- HERO / BANNER BAŞLANGIÇ -->
   <section class="hero-banner">
     <div class="hero-content">
@@ -252,14 +313,13 @@
   <section class="categories-section">
     <h2 class="section-title">Kategoriler</h2>
     <div class="categories-grid">
-      <a href="products.html?cat=tshirt" class="category-card"><i class="fa-solid fa-shirt category-icon"></i><span>Tişört</span></a>
-      <a href="products.html?cat=shirt" class="category-card"><i class="fa-solid fa-user-tie category-icon"></i><span>Gömlek</span></a>
-      <a href="products.html?cat=dress" class="category-card"><i class="fa-solid fa-person-dress category-icon"></i><span>Elbise</span></a>
-      <a href="products.html?cat=jacket" class="category-card"><i class="fa-solid fa-vest category-icon"></i><span>Ceket</span></a>
-      <a href="products.html?cat=pants" class="category-card"><i class="fa-solid fa-socks category-icon"></i><span>Pantolon</span></a>
-      <a href="products.html?cat=sweatshirt" class="category-card"><i class="fa-solid fa-shirt category-icon"></i><span>Sweatshirt</span></a>
-      <a href="products.html?cat=tesettur" class="category-card"><i class="fa-solid fa-person-dress category-icon"></i><span>Tesettür</span></a>
-      <a href="products.html?cat=cosmetic" class="category-card"><i class="fa-solid fa-pump-soap category-icon"></i><span>Kozmetik</span></a>
+      <a href="products.html?cat=tshirt" class="category-card animated-category-card"><i class="fa-solid fa-shirt category-icon animated-category-icon"></i><span>Tişört</span></a>
+      <a href="products.html?cat=shirt" class="category-card animated-category-card"><i class="fa-solid fa-user-tie category-icon animated-category-icon"></i><span>Gömlek</span></a>
+      <a href="products.html?cat=dress" class="category-card animated-category-card"><i class="fa-solid fa-person-dress category-icon animated-category-icon"></i><span>Elbise</span></a>
+      <a href="products.html?cat=jacket" class="category-card animated-category-card"><i class="fa-solid fa-vest category-icon animated-category-icon"></i><span>Ceket</span></a>
+      <a href="products.html?cat=pants" class="category-card animated-category-card"><i class="fa-solid fa-socks category-icon animated-category-icon"></i><span>Pantolon</span></a>
+      <a href="products.html?cat=sweatshirt" class="category-card animated-category-card"><i class="fa-solid fa-shirt category-icon animated-category-icon"></i><span>Sweatshirt</span></a>
+      <a href="products.html?cat=tesettur" class="category-card animated-category-card"><i class="fa-solid fa-person-dress category-icon animated-category-icon"></i><span>Tesettür</span></a>
     </div>
   </section>
   <!-- KATEGORİLER BİTİŞ -->
@@ -280,25 +340,25 @@
     <h2 class="section-title">Öne Çıkan Ürünler</h2>
     <div class="products-grid">
       <div class="product-card">
-        <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=400&q=80" alt="Tişört" class="product-img" />
+        <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=400&q=80" alt="Tişört" class="product-img" loading="lazy" />
         <div class="product-title">Otantik Tişört</div>
         <div class="product-price">₺199 <span class="product-discount">%30</span></div>
         <button class="product-btn">Sepete Ekle</button>
       </div>
       <div class="product-card">
-        <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=400&q=80" alt="Elbise" class="product-img" />
+        <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=400&q=80" alt="Elbise" class="product-img" loading="lazy" />
         <div class="product-title">Modern Elbise</div>
         <div class="product-price">₺349 <span class="product-discount">%25</span></div>
         <button class="product-btn">Sepete Ekle</button>
       </div>
       <div class="product-card">
-        <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=400&q=80" alt="Ceket" class="product-img" />
+        <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=400&q=80" alt="Ceket" class="product-img" loading="lazy" />
         <div class="product-title">Şık Ceket</div>
         <div class="product-price">₺499 <span class="product-discount">%20</span></div>
         <button class="product-btn">Sepete Ekle</button>
       </div>
       <div class="product-card">
-        <img src="https://images.unsplash.com/photo-1469398715555-76331a6c7fa0?auto=format&fit=crop&w=400&q=80" alt="Gömlek" class="product-img" />
+        <img src="https://images.unsplash.com/photo-1469398715555-76331a6c7fa0?auto=format&fit=crop&w=400&q=80" alt="Gömlek" class="product-img" loading="lazy" />
         <div class="product-title">Klasik Gömlek</div>
         <div class="product-price">₺259 <span class="product-discount">%15</span></div>
         <button class="product-btn">Sepete Ekle</button>
@@ -319,6 +379,7 @@
   <!-- AVANTAJLAR BİTİŞ -->
 
   <!-- FOOTER BAŞLANGIÇ -->
+  </main>
   <footer class="site-footer">
     <div class="container">
       <div class="footer-logo">Ankara <span>Otantik</span></div>
