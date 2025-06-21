@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ankara Otantik | Kıyafet Perakende</title>
+  <meta name="description" content="Ankara Otantik - Modern ve animasyonlu kıyafet perakende alışveriş sitesi." />
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Poppins:wght@700;600&family=Playfair+Display:wght@700&family=Dancing+Script&display=swap" rel="stylesheet">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <!-- GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+  <!-- Lottie -->
+  <script src="https://unpkg.com/lottie-web@5.12.2/build/player/lottie.min.js"></script>
+  <!-- Stil dosyası -->
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    :root {
+      --color-main: #2D3436;
+      --color-accent: #FF6B6B;
+      --color-secondary: #4ECDC4;
+      --color-light: #F8F9FA;
+      --color-white: #FFFFFF;
+      --color-black: #1A1A1A;
+      --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    }
+    body {
+      font-family: 'Inter', Arial, sans-serif;
+      background: var(--color-light);
+      margin: 0;
+      padding: 0;
+      color: var(--color-main);
+      min-height: 100vh;
+    }
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: var(--gradient);
+      color: var(--color-white);
+      position: relative;
+      overflow: hidden;
+    }
+    .hero-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 3rem;
+      font-weight: 700;
+      letter-spacing: 2px;
+      margin-bottom: 1rem;
+      text-shadow: 0 4px 24px rgba(0,0,0,0.2);
+      animation: fadeInDown 1.2s cubic-bezier(.77,0,.18,1) 0.2s both;
+    }
+    .hero-desc {
+      font-size: 1.3rem;
+      font-family: 'Inter', sans-serif;
+      margin-bottom: 2rem;
+      max-width: 500px;
+      text-align: center;
+      animation: fadeInUp 1.2s cubic-bezier(.77,0,.18,1) 0.6s both;
+    }
+    .cta-btn {
+      background: var(--color-accent);
+      color: var(--color-white);
+      border: none;
+      padding: 1rem 2.5rem;
+      border-radius: 40px;
+      font-size: 1.2rem;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: 0 2px 16px rgba(255,107,107,0.2);
+      transition: transform 0.2s, box-shadow 0.2s;
+      position: relative;
+      z-index: 2;
+    }
+    .cta-btn:hover {
+      transform: scale(1.07) translateY(-2px);
+      box-shadow: 0 6px 32px rgba(255,107,107,0.3);
+    }
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .categories {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 2rem;
+      margin: 4rem 2rem 2rem 2rem;
+      max-width: 1100px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .category-card {
+      background: var(--color-white);
+      border-radius: 24px;
+      box-shadow: 0 2px 16px rgba(44,52,54,0.08);
+      padding: 2rem 1rem 1.5rem 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: transform 0.25s cubic-bezier(.77,0,.18,1), box-shadow 0.25s;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+    .category-card:hover {
+      transform: translateY(-8px) scale(1.04) rotateZ(-1deg);
+      box-shadow: 0 8px 32px rgba(44,52,54,0.16);
+    }
+    .category-icon {
+      font-size: 2.5rem;
+      color: var(--color-secondary);
+      margin-bottom: 1rem;
+    }
+    .category-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--color-main);
+      margin-bottom: 0.5rem;
+    }
+    .category-desc {
+      font-size: 0.95rem;
+      color: #555;
+      text-align: center;
+    }
+    .featured-products {
+      margin: 4rem auto 2rem auto;
+      max-width: 1200px;
+      padding: 0 2rem;
+    }
+    .featured-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--color-main);
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 2rem;
+    }
+    .product-card {
+      background: var(--color-white);
+      border-radius: 20px;
+      box-shadow: 0 2px 16px rgba(44,52,54,0.08);
+      padding: 1.5rem 1rem 1rem 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: transform 0.22s cubic-bezier(.77,0,.18,1), box-shadow 0.22s;
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+    }
+    .product-card:hover {
+      transform: scale(1.04) rotateZ(1deg);
+      box-shadow: 0 8px 32px rgba(44,52,54,0.16);
+    }
+    .product-img {
+      width: 120px;
+      height: 160px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin-bottom: 1rem;
+      background: #eee;
+    }
+    .product-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--color-main);
+      margin-bottom: 0.5rem;
+      text-align: center;
+    }
+    .product-price {
+      font-size: 1.1rem;
+      color: var(--color-accent);
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    .product-btn {
+      background: var(--color-secondary);
+      color: var(--color-white);
+      border: none;
+      padding: 0.7rem 1.5rem;
+      border-radius: 30px;
+      font-size: 1rem;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .product-btn:hover {
+      background: var(--color-accent);
+    }
+    @media (max-width: 600px) {
+      .hero-title { font-size: 2rem; }
+      .categories { gap: 1rem; }
+      .featured-title { font-size: 1.3rem; }
+    }
+  </style>
+</head>
+<body>
+  <!-- HEADER BAŞLANGIÇ -->
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="logo">Ankara <span>Otantik</span></a>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="index.html">Ana Sayfa</a></li>
+          <li><a href="products.html">Ürünler</a></li>
+          <li><a href="campaigns.html">Kampanyalar</a></li>
+          <li><a href="about.html">Hakkımızda</a></li>
+          <li><a href="contact.html">İletişim</a></li>
+        </ul>
+      </nav>
+      <div class="header-icons">
+        <a href="favorites.html" class="icon-link" title="Favoriler"><i class="fa fa-heart"></i><span class="icon-badge">0</span></a>
+        <a href="cart.html" class="icon-link" title="Sepetim"><i class="fa fa-shopping-cart"></i><span class="icon-badge">0</span></a>
+        <a href="login.html" class="icon-link" title="Giriş / Üye Ol"><i class="fa fa-user"></i></a>
+      </div>
+      <button class="hamburger" aria-label="Menüyü Aç/Kapat">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+  <!-- HEADER BİTİŞ -->
+
+  <!-- HERO / BANNER BAŞLANGIÇ -->
+  <section class="hero-banner">
+    <div class="hero-content">
+      <h1 class="hero-title">Yaza Özel Büyük İndirimler!</h1>
+      <p class="hero-desc">En yeni koleksiyonlar, %40'a varan indirimler ve sürpriz fırsatlar Ankara Otantik'te!</p>
+      <a href="products.html" class="cta-btn">Alışverişe Başla <i class="fa fa-arrow-right"></i></a>
+    </div>
+    <div class="hero-img"></div>
+  </section>
+  <!-- HERO / BANNER BİTİŞ -->
+
+  <!-- KATEGORİLER BAŞLANGIÇ -->
+  <section class="categories-section">
+    <h2 class="section-title">Kategoriler</h2>
+    <div class="categories-grid">
+      <a href="products.html?cat=tshirt" class="category-card"><i class="fa-solid fa-shirt category-icon"></i><span>Tişört</span></a>
+      <a href="products.html?cat=shirt" class="category-card"><i class="fa-solid fa-user-tie category-icon"></i><span>Gömlek</span></a>
+      <a href="products.html?cat=dress" class="category-card"><i class="fa-solid fa-person-dress category-icon"></i><span>Elbise</span></a>
+      <a href="products.html?cat=jacket" class="category-card"><i class="fa-solid fa-vest category-icon"></i><span>Ceket</span></a>
+      <a href="products.html?cat=pants" class="category-card"><i class="fa-solid fa-socks category-icon"></i><span>Pantolon</span></a>
+      <a href="products.html?cat=sweatshirt" class="category-card"><i class="fa-solid fa-shirt category-icon"></i><span>Sweatshirt</span></a>
+      <a href="products.html?cat=tesettur" class="category-card"><i class="fa-solid fa-person-dress category-icon"></i><span>Tesettür</span></a>
+      <a href="products.html?cat=cosmetic" class="category-card"><i class="fa-solid fa-pump-soap category-icon"></i><span>Kozmetik</span></a>
+    </div>
+  </section>
+  <!-- KATEGORİLER BİTİŞ -->
+
+  <!-- KAMPANYA BANNER BAŞLANGIÇ -->
+  <section class="campaign-banner">
+    <div class="campaign-content">
+      <span class="campaign-badge">%40'a Varan İndirim</span>
+      <h3>Yaz Koleksiyonu Fırsatları</h3>
+      <p>Seçili ürünlerde büyük indirimler ve ücretsiz kargo avantajı!</p>
+      <a href="campaigns.html" class="campaign-btn">Kampanyaları Gör</a>
+    </div>
+  </section>
+  <!-- KAMPANYA BANNER BİTİŞ -->
+
+  <!-- ÖNE ÇIKAN ÜRÜNLER BAŞLANGIÇ -->
+  <section class="featured-products-section">
+    <h2 class="section-title">Öne Çıkan Ürünler</h2>
+    <div class="products-grid">
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1512436991641-6745cdb1723f?auto=format&fit=crop&w=400&q=80" alt="Tişört" class="product-img" />
+        <div class="product-title">Otantik Tişört</div>
+        <div class="product-price">₺199 <span class="product-discount">%30</span></div>
+        <button class="product-btn">Sepete Ekle</button>
+      </div>
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=400&q=80" alt="Elbise" class="product-img" />
+        <div class="product-title">Modern Elbise</div>
+        <div class="product-price">₺349 <span class="product-discount">%25</span></div>
+        <button class="product-btn">Sepete Ekle</button>
+      </div>
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1517841905240-472988babdf9?auto=format&fit=crop&w=400&q=80" alt="Ceket" class="product-img" />
+        <div class="product-title">Şık Ceket</div>
+        <div class="product-price">₺499 <span class="product-discount">%20</span></div>
+        <button class="product-btn">Sepete Ekle</button>
+      </div>
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1469398715555-76331a6c7fa0?auto=format&fit=crop&w=400&q=80" alt="Gömlek" class="product-img" />
+        <div class="product-title">Klasik Gömlek</div>
+        <div class="product-price">₺259 <span class="product-discount">%15</span></div>
+        <button class="product-btn">Sepete Ekle</button>
+      </div>
+    </div>
+  </section>
+  <!-- ÖNE ÇIKAN ÜRÜNLER BİTİŞ -->
+
+  <!-- AVANTAJLAR BAŞLANGIÇ -->
+  <section class="advantages-section">
+    <div class="advantages-grid">
+      <div class="advantage-card"><i class="fa fa-truck"></i><span>Ücretsiz Kargo</span></div>
+      <div class="advantage-card"><i class="fa fa-undo"></i><span>Kolay İade</span></div>
+      <div class="advantage-card"><i class="fa fa-credit-card"></i><span>Güvenli Ödeme</span></div>
+      <div class="advantage-card"><i class="fa fa-headset"></i><span>7/24 Destek</span></div>
+    </div>
+  </section>
+  <!-- AVANTAJLAR BİTİŞ -->
+
+  <!-- FOOTER BAŞLANGIÇ -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-logo">Ankara <span>Otantik</span></div>
+      <div class="footer-links">
+        <a href="about.html">Hakkımızda</a>
+        <a href="products.html">Ürünler</a>
+        <a href="campaigns.html">Kampanyalar</a>
+        <a href="contact.html">İletişim</a>
+        <a href="#">İade &amp; KVKK</a>
+      </div>
+      <div class="footer-social">
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+      </div>
+      <div class="footer-copy">&copy; 2024 Ankara Otantik. Tüm hakları saklıdır.</div>
+    </div>
+  </footer>
+  <!-- FOOTER BİTİŞ -->
+
+  <script src="main.js"></script>
+</body>
+</html> 

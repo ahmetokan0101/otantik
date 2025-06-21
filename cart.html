@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sepetim | Ankara Otantik</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Poppins:wght@700;600&family=Playfair+Display:wght@700&family=Dancing+Script&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .cart-hero {
+      min-height: 30vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: var(--gradient);
+      color: var(--color-white);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .cart-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      margin-top: 2rem;
+    }
+    .cart-section {
+      max-width: 900px;
+      margin: -30px auto 2rem auto;
+      padding: 2rem 1rem 1rem 1rem;
+      background: var(--color-white);
+      border-radius: 24px;
+      box-shadow: 0 2px 16px rgba(44,52,54,0.08);
+      position: relative;
+      z-index: 2;
+    }
+    .cart-list {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 2rem;
+    }
+    .cart-list th, .cart-list td {
+      padding: 1rem 0.5rem;
+      text-align: left;
+      border-bottom: 1px solid #eee;
+    }
+    .cart-list th {
+      color: var(--color-main);
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.1rem;
+    }
+    .cart-list td img {
+      width: 60px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin-right: 0.5rem;
+    }
+    .cart-qty {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .cart-qty-btn {
+      background: var(--color-secondary);
+      color: var(--color-white);
+      border: none;
+      border-radius: 50%;
+      width: 28px;
+      height: 28px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .cart-qty-btn:hover {
+      background: var(--color-accent);
+    }
+    .cart-remove {
+      background: var(--color-accent);
+      color: var(--color-white);
+      border: none;
+      border-radius: 50%;
+      width: 28px;
+      height: 28px;
+      font-size: 1.1rem;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .cart-total {
+      text-align: right;
+      font-size: 1.3rem;
+      font-family: 'Poppins', sans-serif;
+      color: var(--color-main);
+      margin-bottom: 1.5rem;
+    }
+    .cart-checkout-btn {
+      background: var(--color-accent);
+      color: var(--color-white);
+      border: none;
+      padding: 1rem 2.5rem;
+      border-radius: 40px;
+      font-size: 1.1rem;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .cart-checkout-btn:hover {
+      background: var(--color-secondary);
+    }
+    @media (max-width: 600px) {
+      .cart-title { font-size: 1.2rem; }
+      .cart-section { padding: 1rem 0.5rem; }
+      .cart-list th, .cart-list td { padding: 0.5rem 0.2rem; }
+    }
+  </style>
+</head>
+<body>
+  <!-- HEADER BAŞLANGIÇ -->
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="logo">Ankara <span>Otantik</span></a>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="index.html">Ana Sayfa</a></li>
+          <li><a href="products.html">Ürünler</a></li>
+          <li><a href="campaigns.html">Kampanyalar</a></li>
+          <li><a href="about.html">Hakkımızda</a></li>
+          <li><a href="contact.html">İletişim</a></li>
+        </ul>
+      </nav>
+      <div class="header-icons">
+        <a href="favorites.html" class="icon-link" title="Favoriler"><i class="fa fa-heart"></i><span class="icon-badge">0</span></a>
+        <a href="cart.html" class="icon-link" title="Sepetim"><i class="fa fa-shopping-cart"></i><span class="icon-badge">0</span></a>
+        <a href="login.html" class="icon-link" title="Giriş / Üye Ol"><i class="fa fa-user"></i></a>
+      </div>
+      <button class="hamburger" aria-label="Menüyü Aç/Kapat">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+  <!-- HEADER BİTİŞ -->
+
+  <section class="cart-hero">
+    <h1 class="section-title">Alışveriş Sepetim</h1>
+  </section>
+
+  <section class="cart-section">
+    <table class="cart-list" id="cartList">
+      <thead>
+        <tr>
+          <th>Ürün</th>
+          <th>Adet</th>
+          <th>Fiyat</th>
+          <th>Sil</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Sepet ürünleri JS ile eklenecek -->
+      </tbody>
+    </table>
+    <div class="cart-total" id="cartTotal">Toplam: ₺0</div>
+    <button class="cart-checkout-btn">Alışverişi Tamamla</button>
+  </section>
+
+  <!-- FOOTER BAŞLANGIÇ -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-logo">Ankara <span>Otantik</span></div>
+      <div class="footer-links">
+        <a href="about.html">Hakkımızda</a>
+        <a href="products.html">Ürünler</a>
+        <a href="campaigns.html">Kampanyalar</a>
+        <a href="contact.html">İletişim</a>
+        <a href="#">İade &amp; KVKK</a>
+      </div>
+      <div class="footer-social">
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+      </div>
+      <div class="footer-copy">&copy; 2024 Ankara Otantik. Tüm hakları saklıdır.</div>
+    </div>
+  </footer>
+  <!-- FOOTER BİTİŞ -->
+
+  <script src="cart.js"></script>
+</body>
+</html> 

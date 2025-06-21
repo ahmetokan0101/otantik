@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kampanyalar | Ankara Otantik</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Poppins:wght@700;600&family=Playfair+Display:wght@700&family=Dancing+Script&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .campaigns-hero {
+      min-height: 40vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: var(--gradient);
+      color: var(--color-white);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .campaigns-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 2rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      margin-top: 2rem;
+    }
+    .campaigns-section {
+      max-width: 1100px;
+      margin: -40px auto 2rem auto;
+      padding: 2rem 1rem 1rem 1rem;
+      background: var(--color-white);
+      border-radius: 24px;
+      box-shadow: 0 2px 16px rgba(44,52,54,0.08);
+      position: relative;
+      z-index: 2;
+    }
+    .campaigns-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+    .campaign-card {
+      background: var(--color-light);
+      border-radius: 20px;
+      box-shadow: 0 2px 16px rgba(44,52,54,0.08);
+      padding: 2rem 1rem 1.5rem 1rem;
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      transition: transform 0.22s cubic-bezier(.77,0,.18,1), box-shadow 0.22s;
+    }
+    .campaign-card:hover {
+      transform: scale(1.04) rotateZ(-1deg);
+      box-shadow: 0 8px 32px rgba(44,52,54,0.16);
+    }
+    .campaign-img {
+      width: 100%;
+      max-width: 220px;
+      height: 120px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin-bottom: 1rem;
+      background: #eee;
+    }
+    .campaign-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.2rem;
+      font-weight: 600;
+      color: var(--color-main);
+      margin-bottom: 0.5rem;
+      text-align: center;
+    }
+    .campaign-desc {
+      font-size: 1rem;
+      color: #555;
+      text-align: center;
+      margin-bottom: 1rem;
+    }
+    .campaign-badge {
+      position: absolute;
+      top: 1.2rem;
+      right: 1.2rem;
+      background: var(--color-accent);
+      color: var(--color-white);
+      font-size: 1rem;
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      padding: 0.4rem 1.1rem;
+      border-radius: 20px;
+      box-shadow: 0 2px 8px rgba(255,107,107,0.12);
+      z-index: 2;
+      animation: badgePop 0.7s cubic-bezier(.77,0,.18,1);
+    }
+    @keyframes badgePop {
+      0% { transform: scale(0.5); opacity: 0; }
+      80% { transform: scale(1.15); opacity: 1; }
+      100% { transform: scale(1); }
+    }
+    .campaign-timer {
+      font-family: 'Poppins', sans-serif;
+      font-size: 1.1rem;
+      color: var(--color-secondary);
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+    }
+    @media (max-width: 600px) {
+      .campaigns-title { font-size: 1.2rem; }
+      .campaigns-section { padding: 1rem 0.5rem; }
+    }
+  </style>
+</head>
+<body>
+  <!-- HEADER BAŞLANGIÇ -->
+  <header class="site-header">
+    <div class="container">
+      <a href="index.html" class="logo">Ankara <span>Otantik</span></a>
+      <nav class="main-nav">
+        <ul>
+          <li><a href="index.html">Ana Sayfa</a></li>
+          <li><a href="products.html">Ürünler</a></li>
+          <li><a href="campaigns.html">Kampanyalar</a></li>
+          <li><a href="about.html">Hakkımızda</a></li>
+          <li><a href="contact.html">İletişim</a></li>
+        </ul>
+      </nav>
+      <div class="header-icons">
+        <a href="favorites.html" class="icon-link" title="Favoriler"><i class="fa fa-heart"></i><span class="icon-badge">0</span></a>
+        <a href="cart.html" class="icon-link" title="Sepetim"><i class="fa fa-shopping-cart"></i><span class="icon-badge">0</span></a>
+        <a href="login.html" class="icon-link" title="Giriş / Üye Ol"><i class="fa fa-user"></i></a>
+      </div>
+      <button class="hamburger" aria-label="Menüyü Aç/Kapat">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+  <!-- HEADER BİTİŞ -->
+
+  <section class="campaigns-hero">
+    <h1 class="section-title">Kampanyalar</h1>
+  </section>
+
+  <section class="campaigns-section">
+    <div class="campaigns-grid" id="campaignsGrid">
+      <!-- Kampanyalar JS ile eklenecek -->
+    </div>
+  </section>
+
+  <!-- FOOTER BAŞLANGIÇ -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-logo">Ankara <span>Otantik</span></div>
+      <div class="footer-links">
+        <a href="about.html">Hakkımızda</a>
+        <a href="products.html">Ürünler</a>
+        <a href="campaigns.html">Kampanyalar</a>
+        <a href="contact.html">İletişim</a>
+        <a href="#">İade &amp; KVKK</a>
+      </div>
+      <div class="footer-social">
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+      </div>
+      <div class="footer-copy">&copy; 2024 Ankara Otantik. Tüm hakları saklıdır.</div>
+    </div>
+  </footer>
+  <!-- FOOTER BİTİŞ -->
+  <script src="campaigns.js"></script>
+</body>
+</html> 
