@@ -114,21 +114,52 @@
 
   <section class="contact-hero">
     <h1 class="section-title">İletişim</h1>
+    <p class="contact-hero-desc">Sorularınız, önerileriniz veya iş birliği talepleriniz için bize ulaşın. Size yardımcı olmaktan mutluluk duyarız!</p>
+    <div class="hero-wave-bg">
+      <svg viewBox="0 0 1440 80" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:60px;display:block;"><path fill="url(#waveGradient)" fill-opacity="0.18" d="M0,40 C360,80 1080,0 1440,40 L1440,80 L0,80 Z"></path><defs><linearGradient id="waveGradient" x1="0" y1="0" x2="1440" y2="0" gradientUnits="userSpaceOnUse"><stop stop-color="#667eea"/><stop offset="1" stop-color="#FF6B6B"/></linearGradient></defs></svg>
+    </div>
   </section>
 
   <section class="contact-section">
-    <h2>Bize Ulaşın</h2>
-    <div class="contact-info">
-      <div><i class="fa fa-envelope"></i> info@ankaraotantik.com</div>
-      <div><i class="fa fa-phone"></i> +90 312 000 00 00</div>
-      <div><i class="fa fa-map-marker-alt"></i> Ankara, Türkiye</div>
+    <div class="contact-card animated-fade-in">
+      <div class="contact-info-block">
+        <div class="contact-badge"><i class="fa fa-phone"></i></div>
+        <h2 class="contact-title">Bize Ulaşın</h2>
+        <div class="contact-info">
+          <div><i class="fa fa-phone"></i> +90 (538) 593 26 05</div>
+          <div><i class="fa fa-envelope"></i> info@ankaraotantik.com</div>
+          <div><i class="fa fa-map-marker-alt"></i> Ankara, Türkiye</div>
+          <div class="adresimiz-bu">
+            <span class="adres-baslik"><i class="fa fa-map-marker-alt"></i> Bizi Google Haritalar'da Görüntüle</span><br>
+            <a href="https://g.co/kgs/Zn3Lkax" target="_blank" class="adres-link">
+              Samanpazarı Enez Sokak Güven Çarşısı No 2/89, Ulus, Ankara, Turkey 06100
+            </a>
+          </div>
+        </div>
+      </div>
+      <!-- Modern iletişim formu başlangıç -->
+      <div class="form-card1 animated-slide-up">
+        <div class="form-card2">
+          <form class="form" action="mail-gonder.php" method="POST">
+            <p class="form-heading">Bize Mesaj Gönderin</p>
+            <div class="form-field">
+              <input required name="adsoyad" placeholder="Adınız Soyadınız" class="input-field" type="text" />
+            </div>
+            <div class="form-field">
+              <input required name="email" placeholder="E-posta Adresiniz" class="input-field" type="email" />
+            </div>
+            <div class="form-field">
+              <input required name="konu" placeholder="Konu" class="input-field" type="text" />
+            </div>
+            <div class="form-field">
+              <textarea required name="mesaj" placeholder="Mesajınız" cols="30" rows="3" class="input-field"></textarea>
+            </div>
+            <button class="sendMessage-btn" type="submit">Mesajı Gönder</button>
+          </form>
+        </div>
+      </div>
+      <!-- Modern iletişim formu bitiş -->
     </div>
-    <form class="contact-form">
-      <input type="text" placeholder="Adınız Soyadınız" required />
-      <input type="email" placeholder="E-posta Adresiniz" required />
-      <textarea rows="4" placeholder="Mesajınız" required></textarea>
-      <button type="submit">Gönder</button>
-    </form>
   </section>
 
   <!-- FOOTER BAŞLANGIÇ -->
@@ -140,14 +171,14 @@
         <a href="products.html">Ürünler</a>
         <a href="campaigns.html">Kampanyalar</a>
         <a href="contact.html">İletişim</a>
-        <a href="#">İade &amp; KVKK</a>
+        <a href="kvkk.html">İade &amp; KVKK</a>
       </div>
       <div class="footer-social">
-        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.instagram.com/ikontoptan" aria-label="Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
         <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
         <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
       </div>
-      <div class="footer-copy">&copy; 2024 Ankara Otantik. Tüm hakları saklıdır.</div>
+      <div class="footer-copy">&copy; 2025 Ankara Otantik. Tüm hakları saklıdır.</div>
     </div>
   </footer>
   <!-- FOOTER BİTİŞ -->

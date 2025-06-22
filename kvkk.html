@@ -3,12 +3,160 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>KVKK & İade Politikası | Ankara Otantik</title>
+  <title>İade & KVKK | Ankara Otantik</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Poppins:wght@700;600&family=Playfair+Display:wght@700&family=Dancing+Script&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
   <link rel="stylesheet" href="style.css" />
+  <style>
+    body {
+      background: var(--color-light);
+      color: var(--color-main);
+      font-family: 'Inter', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      position: relative;
+      overflow-x: hidden;
+    }
+    .kvkk-bg-gradient {
+      position: fixed;
+      top: 0; left: 0; width: 100vw; height: 100vh;
+      z-index: -2;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      opacity: 0.22;
+      pointer-events: none;
+    }
+    .kvkk-bg-wave {
+      z-index: -1;
+      position: absolute;
+      left: 0; top: 0;
+      width: 100vw;
+      height: 220px;
+      pointer-events: none;
+    }
+    .kvkk-hero {
+      min-height: 40vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: var(--gradient);
+      color: var(--color-white);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      animation: fadeInDown 1.2s cubic-bezier(.77,0,.18,1);
+    }
+    .kvkk-title {
+      font-family: 'Poppins', sans-serif;
+      font-size: 2.5rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+      margin-top: 2rem;
+      letter-spacing: 2px;
+      text-shadow: 0 4px 24px rgba(0,0,0,0.18);
+    }
+    .kvkk-section {
+      background: var(--color-white);
+      border-radius: 24px;
+      box-shadow: 0 2px 24px rgba(44,52,54,0.18);
+      margin: -60px auto 2rem auto;
+      max-width: 900px;
+      padding: 2.5rem 2rem 2rem 2rem;
+      position: relative;
+      z-index: 2;
+      animation: fadeInUp 1.2s cubic-bezier(.77,0,.18,1);
+    }
+    .kvkk-section h2 {
+      font-family: 'Poppins', sans-serif;
+      color: var(--color-accent);
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+    .kvkk-section p {
+      color: var(--color-main);
+      font-size: 1.08rem;
+      line-height: 1.7;
+      margin-bottom: 1.2rem;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    .kvkk-icons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2.5rem;
+      align-items: stretch;
+      margin: 2.5rem 0 1.5rem 0;
+    }
+    .kvkk-icon-card {
+      flex: 1 1 180px;
+      max-width: 220px;
+      min-width: 180px;
+      margin-bottom: 1rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .kvkk-icon-card i {
+      font-size: 2.5rem;
+      color: var(--color-secondary);
+      margin-bottom: 0.7rem;
+      transition: color 0.3s;
+    }
+    .kvkk-icon-card:hover {
+      box-shadow: 0 8px 32px rgba(44,52,54,0.16);
+      transform: translateY(-6px) scale(1.04);
+    }
+    .kvkk-icon-card:hover i {
+      color: var(--color-accent);
+      transform: scale(1.15) rotate(-8deg);
+    }
+    .kvkk-icon-title {
+      font-family: 'Poppins', sans-serif;
+      font-weight: 600;
+      color: var(--color-main);
+      font-size: 1.1rem;
+      margin-bottom: 0.3rem;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    .kvkk-icon-desc {
+      font-size: 0.98rem;
+      color: #555;
+      text-align: center;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.08);
+    }
+    @media (max-width: 700px) {
+      .kvkk-icons {
+        gap: 1.2rem;
+      }
+      .kvkk-icon-card {
+        max-width: 100%;
+        min-width: 140px;
+      }
+    }
+    @media (max-width: 500px) {
+      .kvkk-icons {
+        gap: 1rem;
+      }
+    }
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 </head>
 <body>
+  <!-- Mor gradient arka plan ve dekoratif dalga shape -->
+  <div class="kvkk-bg-gradient"></div>
+  <svg class="kvkk-bg-wave" viewBox="0 0 1440 320" style="position:absolute;top:0;left:0;width:100vw;height:220px;z-index:0;pointer-events:none;"><path fill="#764ba2" fill-opacity="0.18" d="M0,160L60,170.7C120,181,240,203,360,197.3C480,192,600,160,720,133.3C840,107,960,85,1080,101.3C1200,117,1320,171,1380,197.3L1440,224L1440,0L1380,0C1320,0,1200,0,1080,0C960,0,840,0,720,0C600,0,480,0,360,0C240,0,120,0,60,0L0,0Z"></path></svg>
   <!-- HEADER BAŞLANGIÇ -->
   <header class="site-header">
     <div class="container">
@@ -35,15 +183,22 @@
   <!-- HEADER BİTİŞ -->
 
   <section class="kvkk-hero">
-    <h1 class="section-title">KVKK & İade Politikası</h1>
+    <h1 class="kvkk-title">İade &amp; KVKK Politikamız</h1>
+    <p style="max-width:600px;margin:0 auto 1.5rem auto;font-size:1.15rem;">Müşteri memnuniyeti ve kişisel verilerinizin güvenliği bizim için en önemli önceliktir. Tüm süreçlerimizde şeffaf, güvenli ve hızlı hizmet sunuyoruz.</p>
   </section>
 
   <section class="kvkk-section">
-    <h2>Kişisel Verilerin Korunması</h2>
-    <p>Müşterilerimizin kişisel verileri, 6698 sayılı Kişisel Verilerin Korunması Kanunu (KVKK) kapsamında güvenle saklanır ve üçüncü kişilerle paylaşılmaz. Detaylı bilgi için lütfen bizimle iletişime geçin.</p>
-    <h2>İade ve Geri Ödeme Politikası</h2>
-    <p>Satın aldığınız ürünleri, teslimat tarihinden itibaren 14 gün içinde iade edebilirsiniz. İade edilen ürünlerin ücreti, ürün bize ulaştıktan sonra 3 iş günü içinde tarafınıza iade edilir.</p>
-    <h2>İletişim</h2>
+    <div class="kvkk-icons">
+      <div class="kvkk-icon-card"><i class="fa fa-shield-alt"></i><div class="kvkk-icon-title">Veri Güvenliği</div><div class="kvkk-icon-desc">Kişisel verileriniz <span class="important">6698 sayılı KVKK</span> kapsamında güvenle saklanır ve asla üçüncü kişilerle paylaşılmaz.</div></div>
+      <div class="kvkk-icon-card"><i class="fa fa-undo"></i><div class="kvkk-icon-title">Kolay İade</div><div class="kvkk-icon-desc">Satın aldığınız ürünleri <span class="important">14 gün</span> içinde kolayca iade edebilirsiniz. İade süreci hızlı ve şeffaftır.</div></div>
+      <div class="kvkk-icon-card"><i class="fa fa-lock"></i><div class="kvkk-icon-title">Gizlilik</div><div class="kvkk-icon-desc">Tüm bilgileriniz <span class="important">şifreli</span> ve <span class="important">güvenli</span> altyapı ile korunur. Gizliliğiniz bizim için önemlidir.</div></div>
+      <div class="kvkk-icon-card"><i class="fa fa-smile-beam"></i><div class="kvkk-icon-title">Müşteri Memnuniyeti</div><div class="kvkk-icon-desc">Her adımda <span class="important">mutlu müşteri</span> odaklıyız. Sorularınız için <span class="important">7/24 destek</span> sunuyoruz.</div></div>
+    </div>
+    <h2><i class="fa fa-user-shield"></i> Kişisel Verilerin Korunması</h2>
+    <p>Müşterilerimizin kişisel verileri, <span class="important">6698 sayılı Kişisel Verilerin Korunması Kanunu (KVKK)</span> kapsamında güvenle saklanır ve üçüncü kişilerle paylaşılmaz. Detaylı bilgi için bizimle iletişime geçebilirsiniz.</p>
+    <h2><i class="fa fa-undo"></i> İade ve Geri Ödeme Politikası</h2>
+    <p>Satın aldığınız ürünleri, teslimat tarihinden itibaren <span class="important">14 gün</span> içinde iade edebilirsiniz. İade edilen ürünlerin ücreti, ürün bize ulaştıktan sonra <span class="important">3 iş günü</span> içinde tarafınıza iade edilir.</p>
+    <h2><i class="fa fa-headset"></i> Destek ve İletişim</h2>
     <p>Her türlü soru ve talepleriniz için <a href="contact.html">iletişim</a> sayfamızdan bize ulaşabilirsiniz.</p>
   </section>
 
@@ -59,13 +214,54 @@
         <a href="kvkk.html">İade &amp; KVKK</a>
       </div>
       <div class="footer-social">
-        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.instagram.com/ikontoptan" aria-label="Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
         <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
         <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
       </div>
-      <div class="footer-copy">&copy; 2024 Ankara Otantik. Tüm hakları saklıdır.</div>
+      <div class="footer-copy">&copy; 2025 Ankara Otantik. Tüm hakları saklıdır.</div>
     </div>
   </footer>
   <!-- FOOTER BİTİŞ -->
+
+  <script>
+    window.addEventListener('DOMContentLoaded', function() {
+      gsap.from('.kvkk-hero', {
+        opacity: 0, y: -60, duration: 1, ease: 'power2.out',
+        onComplete: function() {
+          document.querySelector('.kvkk-hero').style.opacity = '1';
+        }
+      });
+      gsap.from('.kvkk-section', {
+        opacity: 0, y: 60, duration: 1, delay: 0.3, ease: 'power2.out',
+        onComplete: function() {
+          document.querySelector('.kvkk-section').style.opacity = '1';
+        }
+      });
+      gsap.from('.kvkk-icon-card', {
+        opacity: 0, y: 40, duration: 0.7, stagger: 0.15, delay: 0.5, ease: 'power2.out',
+        onComplete: function() {
+          document.querySelectorAll('.kvkk-icon-card').forEach(function(el) {
+            el.style.opacity = '1';
+          });
+        }
+      });
+      gsap.from('.kvkk-section h2', {
+        opacity: 0, x: -40, duration: 0.7, stagger: 0.2, delay: 0.7, ease: 'power2.out',
+        onComplete: function() {
+          document.querySelectorAll('.kvkk-section h2').forEach(function(el) {
+            el.style.opacity = '1';
+          });
+        }
+      });
+      gsap.from('.kvkk-section p', {
+        opacity: 0, x: 40, duration: 0.7, stagger: 0.2, delay: 0.8, ease: 'power2.out',
+        onComplete: function() {
+          document.querySelectorAll('.kvkk-section p').forEach(function(el) {
+            el.style.opacity = '1';
+          });
+        }
+      });
+    });
+  </script>
 </body>
 </html> 
